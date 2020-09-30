@@ -1,12 +1,13 @@
-var http = require("http");
+const express = require("express");
+const app = express();
 
-http
-  .createServer(function (req, res) {
+app
+  .get("/goog", (req, res) => {
     res.writeHead(301, {
       location: "http://google.com",
     });
     res.end();
   })
-  .listen(3000, "localhost");
+  .listen(80);
 
-console.log("server redirects from localhost to google.com");
+console.log(`redirecting to google.com`);
